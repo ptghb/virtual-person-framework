@@ -258,7 +258,7 @@ function evaluateCurve(
  * @param endIndex
  * @param time
  * @param endTime
- * @return
+ * @returns
  */
 function correctEndPoint(
   motionData: CubismMotionData,
@@ -1173,7 +1173,7 @@ export class CubismMotion extends ACubismMotion {
   /**
    * 透明度のカーブが存在するかどうかを確認する
    *
-   * @return true  -> キーが存在する
+   * @returns true  -> キーが存在する
    *          false -> キーが存在しない
    */
   public isExistModelOpacity(): boolean {
@@ -1195,7 +1195,7 @@ export class CubismMotion extends ACubismMotion {
   /**
    * 透明度のカーブのインデックスを返す
    *
-   * @return success:透明度のカーブのインデックス
+   * @returns success:透明度のカーブのインデックス
    */
   public getModelOpacityIndex(): number {
     if (this.isExistModelOpacity()) {
@@ -1220,7 +1220,7 @@ export class CubismMotion extends ACubismMotion {
    * 透明度のIdを返す
    *
    * @param index モーションカーブのインデックス
-   * @return success:透明度のカーブのインデックス
+   * @returns success:透明度のカーブのインデックス
    */
   public getModelOpacityId(index: number): CubismIdHandle {
     if (index != -1) {
@@ -1239,7 +1239,7 @@ export class CubismMotion extends ACubismMotion {
   /**
    * 現在時間の透明度の値を返す
    *
-   * @return success:モーションの当該時間におけるOpacityの値
+   * @returns success:モーションの当該時間におけるOpacityの値
    */
   public getModelOpacityValue(): number {
     return this._modelOpacity;

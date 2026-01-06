@@ -1,10 +1,3 @@
-/**
- * Copyright(c) Live2D Inc. All rights reserved.
- *
- * Use of this source code is governed by the Live2D Open Software license
- * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
- */
-
 import { CubismId, CubismIdHandle } from '../id/cubismid';
 import { LogLevel, csmDelete } from '../live2dcubismframework';
 import { CubismModel } from '../model/cubismmodel';
@@ -68,7 +61,7 @@ export class CubismExpressionMotionManager extends CubismMotionQueueManager {
    *
    * 再生中のモーションの優先度を取得する。
    *
-   * @return モーションの優先度
+   * @returns モーションの優先度
    */
   public getCurrentPriority(): number {
     CubismLogInfo(
@@ -98,7 +91,7 @@ export class CubismExpressionMotionManager extends CubismMotionQueueManager {
    * @brief 再生中のモーションのウェイトを取得する。
    *
    * @param[in]    index    表情のインデックス
-   * @return               表情モーションのウェイト
+   * @returns               表情モーションのウェイト
    */
   public getFadeWeight(index: number): number {
     if (
@@ -190,8 +183,8 @@ export class CubismExpressionMotionManager extends CubismMotionQueueManager {
    *
    * @param[in]   model   対象のモデル
    * @param[in]   deltaTimeSeconds    デルタ時間[秒]
-   * @return  true    更新されている
-   *          false   更新されていない
+   * @retval  true    更新されている
+   * @retval  false   更新されていない
    */
   public updateMotion(model: CubismModel, deltaTimeSeconds: number): boolean {
     this._userTimeSeconds += deltaTimeSeconds;

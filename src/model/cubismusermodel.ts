@@ -85,7 +85,6 @@ export class CubismUserModel {
 
   /**
    * マウスドラッグ情報の設定
-   *
    * @param ドラッグしているカーソルのX位置
    * @param ドラッグしているカーソルのY位置
    */
@@ -95,7 +94,6 @@ export class CubismUserModel {
 
   /**
    * 加速度の情報を設定する
-   *
    * @param x X軸方向の加速度
    * @param y Y軸方向の加速度
    * @param z Z軸方向の加速度
@@ -115,20 +113,7 @@ export class CubismUserModel {
   }
 
   /**
-   * モデルを描画したバッファを設定する
-   *
-   * @param width モデルを描画したバッファの幅
-   * @param height モデルを描画したバッファの高さ
-   */
-  public setRenderTargetSize(width: number, height: number): void {
-    if (this._renderer) {
-      this._renderer.setRenderTargetSize(width, height);
-    }
-  }
-
-  /**
    * 不透明度の設定
-   *
    * @param a 不透明度
    */
   public setOpacity(a: number): void {
@@ -137,7 +122,6 @@ export class CubismUserModel {
 
   /**
    * 不透明度の取得
-   *
    * @return 不透明度
    */
   public getOpacity(): number {
@@ -352,15 +336,6 @@ export class CubismUserModel {
   }
 
   /**
-   * 読み込めないMocファイルの.moc3 Versionを取得
-   * @param mocBytes 読み込めないMocファイルのバイト配列
-   * @returns .moc3 Version番号
-   */
-  public getMocVersionFromBuffer(mocBytes: ArrayBuffer): number {
-    return CubismMoc.getMocVersionFromBuffer(mocBytes);
-  }
-
-  /**
    * レンダラの取得
    * @return レンダラ
    */
@@ -370,20 +345,14 @@ export class CubismUserModel {
 
   /**
    * レンダラを作成して初期化を実行する
-   * @param width レンダリングする幅
-   * @param height レンダリングする高さ
    * @param maskBufferCount バッファの生成数
    */
-  public createRenderer(
-    width: number,
-    height: number,
-    maskBufferCount = 1
-  ): void {
+  public createRenderer(maskBufferCount = 1): void {
     if (this._renderer) {
       this.deleteRenderer();
     }
 
-    this._renderer = new CubismRenderer_WebGL(width, height);
+    this._renderer = new CubismRenderer_WebGL();
     this._renderer.initialize(this._model, maskBufferCount);
   }
 

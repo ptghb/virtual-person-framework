@@ -189,7 +189,7 @@ export class CubismMotionQueueManager {
    * CubismMotionQueueEntryの配列を取得する。
    *
    * @return  CubismMotionQueueEntryの配列へのポインタ
-   *          NULL   見つからなかった
+   * @retval  NULL   見つからなかった
    */
   public getCubismMotionQueueEntries(): csmVector<CubismMotionQueueEntry> {
     return this._motions;

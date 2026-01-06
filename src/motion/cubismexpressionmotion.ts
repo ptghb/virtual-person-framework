@@ -243,7 +243,7 @@ export class CubismExpressionMotion extends ACubismMotion {
    *
    * 現在の表情のフェードのウェイト値を取得する
    *
-   * @return 表情のフェードのウェイト値
+   * @returns 表情のフェードのウェイト値
    *
    * @deprecated CubismExpressionMotion.fadeWeightが削除予定のため非推奨。
    * CubismExpressionMotionManager.getFadeWeight(index: number): number を使用してください。
@@ -330,7 +330,7 @@ export class CubismExpressionMotion extends ACubismMotion {
    * @param source 現在の値
    * @param destination 適用する値
    * @param weight ウェイト
-   * @return 計算結果
+   * @returns 計算結果
    */
   public calculateValue(
     source: number,
