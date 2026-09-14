@@ -7,8 +7,6 @@
 
 import { CubismMath } from '../math/cubismmath';
 import { CubismModel } from '../model/cubismmodel';
-import { csmString } from '../type/csmstring';
-import { csmVector } from '../type/csmvector';
 import { CSM_ASSERT, CubismDebug } from '../utils/cubismdebug';
 import { CubismMotionQueueEntry } from './cubismmotionqueueentry';
 
@@ -43,7 +41,7 @@ export abstract class ACubismMotion {
     this._isLoop = false; // ループするか
     this._isLoopFadeIn = true; // ループ時にフェードインが有効かどうかのフラグ。初期値では有効。
     this._previousLoopState = this._isLoop;
-    this._firedEventValues = new csmVector<csmString>();
+    this._firedEventValues = new Array<string>();
   }
 
   /**
@@ -297,7 +295,7 @@ export abstract class ACubismMotion {
   public getFiredEvent(
     beforeCheckTimeSeconds: number,
     motionTimeSeconds: number
-  ): csmVector<csmString> {
+  ): Array<string> {
     return this._firedEventValues;
   }
 
@@ -366,7 +364,7 @@ export abstract class ACubismMotion {
   /**
    * 透明度のカーブが存在するかどうかを確認する
    *
-   * @returns true  -> キーが存在する
+   * @return true  -> キーが存在する
    *          false -> キーが存在しない
    */
   public isExistModelOpacity(): boolean {
@@ -376,7 +374,7 @@ export abstract class ACubismMotion {
   /**
    * 透明度のカーブのインデックスを返す
    *
-   * @returns success:透明度のカーブのインデックス
+   * @return success:透明度のカーブのインデックス
    */
   public getModelOpacityIndex(): number {
     return -1;
@@ -386,7 +384,7 @@ export abstract class ACubismMotion {
    * 透明度のIdを返す
    *
    * @param index モーションカーブのインデックス
-   * @returns success:透明度のId
+   * @return success:透明度のId
    */
   public getModelOpacityId(index: number): CubismIdHandle {
     return null;
@@ -395,7 +393,7 @@ export abstract class ACubismMotion {
   /**
    * 指定時間の透明度の値を返す
    *
-   * @returns success:モーションの現在時間におけるOpacityの値
+   * @return success:モーションの現在時間におけるOpacityの値
    *
    * @note  更新後の値を取るにはUpdateParameters() の後に呼び出す。
    */
@@ -424,7 +422,7 @@ export abstract class ACubismMotion {
   public _isLoop: boolean; // ループが有効かのフラグ
   public _isLoopFadeIn: boolean; // ループ時にフェードインが有効かどうかのフラグ
   public _previousLoopState: boolean; // 前回の `_isLoop` の状態
-  public _firedEventValues: csmVector<csmString>;
+  public _firedEventValues: Array<string>;
 
   // モーション再生開始コールバック関数
   public _onBeganMotion?: BeganMotionCallback;
